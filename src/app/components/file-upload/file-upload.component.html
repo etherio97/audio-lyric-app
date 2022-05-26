@@ -1,0 +1,8 @@
+<template>
+  <input
+    #inputFile
+    type="file"
+    (change)="onChange($event)"
+    [accept]="mimes.join(',')"
+  />
+</template>

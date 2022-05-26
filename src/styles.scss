@@ -1,0 +1,24 @@
+/**
+ * Tailwind CSS
+ */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/**
+ * Custom Fonts
+ */
+@import "./assets/fonts/inter/inter.css";
+
+/**
+ * Added from @angular/material
+ */
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Inter, "Helvetica Neue", sans-serif;
+}

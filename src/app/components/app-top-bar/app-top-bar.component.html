@@ -1,0 +1,58 @@
+<div class="navbar bg-base-100">
+  <div class="navbar-start">
+    <div class="flex items-center justify-center space-x-2">
+      <div class="dropdown">
+        <button
+          [matMenuTriggerFor]="menu"
+          class="text-brand btn btn-ghost btn-circle"
+          tab-index="0"
+        >
+          <mat-icon svgIcon="heroicons_outline:menu-alt-2"></mat-icon>
+        </button>
+        <mat-menu
+          #menu="matMenu"
+          class="mt-1 ml-2 border shadow-md border-x-slate-200 bg-slate-50 menu menu-compact rounded-box"
+        >
+          <ng-container [ngTemplateOutlet]="menuItem"></ng-container>
+        </mat-menu>
+      </div>
+      <div class="py-2">
+        <img
+          class="cursor-pointer btn btn-sm btn-ghost hover:bg-transparent"
+          src="assets/images/et-logo.png"
+          alt="Ethereal"
+        />
+      </div>
+    </div>
+  </div>
+  <div class="navbar-center">
+    <!--  -->
+  </div>
+  <div class="navbar-end">
+    <!--  -->
+  </div>
+</div>
+
+<ng-template #menuItem>
+  <nav class="px-2 divide-y divide-slate-200">
+    <li *ngFor="let menu of menuItems">
+      <button mat-button (click)="dispatch(menu.action)" tab-index="0">
+        <div class="flex items-center">
+          <mat-icon
+            *ngIf="menu.icon; else noIcon"
+            [svgIcon]="menu.icon"
+            class="mt-2 icon-size-4"
+          ></mat-icon>
+          <ng-template #noIcon>
+            <i></i>
+          </ng-template>
+          <span
+            class="-mt-2"
+            [innerText]="menu.title"
+            class="text-xs tracking-wide"
+          ></span>
+        </div>
+      </button>
+    </li>
+  </nav>
+</ng-template>
